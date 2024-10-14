@@ -35,7 +35,7 @@ namespace API.Controllers
         /// <param name="id">The ID of the post to retrieve</param>
         /// <returns>The requested post or NotFound if not found</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<Post?>> GetPost(Guid id)
+        public async Task<ActionResult<Post>> GetPost(Guid id)
         {
             var post = await _context.Posts.FindAsync(id);
             
@@ -53,7 +53,7 @@ namespace API.Controllers
         /// <param name="post">The post data to create</param>
         /// <returns>The created post</returns>
         [HttpPost]
-        public async Task<ActionResult<Post>> CreatePost(Post post)
+        public async Task<ActionResult<Post>> CreatePost([FromBody] Post post)
         {
             _context.Posts.Add(post);
             await _context.SaveChangesAsync();
@@ -61,28 +61,14 @@ namespace API.Controllers
             return CreatedAtAction(nameof(GetPost), new { id = post.Id }, post);
         }
 
-        /// <summary>
-        /// Creates a new post
-        /// </summary>
-        /// <param name="post">The post data to create</param>
-        /// <returns>The created post</returns>
-        [HttpPost]
-        public async Task<ActionResult<Post>> Create([FromBody] Post post)
-        {
-            _context.Posts.Add(post);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetPost), new { id = post.Id }, post);
-        }
-        
         /// <summary>
         /// Updates an existing post
         /// </summary>
         /// <param name="id">The ID of the post to update</param>
         /// <param name="post">The updated post data</param>
         /// <returns>No content if successful, or NotFound if the post doesn't exist</returns>
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdatePost(Guid id, Post post)
+        [HttpPut("update/{id}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] Post post)
         {
             if (id != post.Id)
             {
