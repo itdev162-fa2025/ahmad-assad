@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Ahmad.Assad.Domain;
+using System;
+using System.IO;
 
 namespace Persistence
 {
@@ -7,18 +9,14 @@ namespace Persistence
     {
         public string DbPath { get; }
 
-        public DbSet<WeatherForecast> WeatherForecasts { get; set; }
+        public DbSet<WeatherForecast> WeatherForecasts { get; set; } = null!;
+        public DbSet<Post> Posts { get; set; } = null!;
 
-        public DataContext()
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
             var folder = Environment.SpecialFolder.LocalApplicationData;
             var path = Environment.GetFolderPath(folder);
             DbPath = Path.Join(path, "weather.db");
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
-            options.UseSqlite($"Data Source={DbPath}");
         }
     }
 }
