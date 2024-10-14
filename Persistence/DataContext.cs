@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Ahmad.Assad.Domain;
+using System;
+using System.IO;
 
 namespace Persistence
 {
@@ -8,6 +10,7 @@ namespace Persistence
         public string DbPath { get; }
 
         public DbSet<WeatherForecast> WeatherForecasts { get; set; }
+        public DbSet<Post> Posts { get; set; }  // Add this line
 
         public DataContext()
         {
