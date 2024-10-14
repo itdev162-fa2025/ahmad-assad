@@ -1,6 +1,4 @@
 C:\Users\Ahmad\Documents\GitHub\Ahmad-Assad\obj\Debug\net8.0\Ahmad-Assad.csproj.AssemblyReference.cache
 C:\Users\Ahmad\Documents\GitHub\Ahmad-Assad\obj\Debug\net8.0\Ahmad-Assad.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Ahmad\Documents\GitHub\Ahmad-Assad\obj\Debug\net8.0\Ahmad-Assad.AssemblyInfoInputs.cache
-C:\Users\Ahmad\Documents\GitHub\Ahmad-Assad\obj\Debug\net8.0\Ahmad-Assad.AssemblyInfo.cs
 C:\Users\Ahmad\Documents\GitHub\Ahmad-Assad\obj\Debug\net8.0\Ahmad-Assad.csproj.CoreCompileInputs.cache
 C:\Users\Ahmad\Documents\GitHub\Ahmad-Assad\obj\Debug\net8.0\Ahmad-Assad.sourcelink.json

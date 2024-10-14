@@ -35,7 +35,7 @@ namespace API.Controllers
         /// <param name="id">The ID of the post to retrieve</param>
         /// <returns>The requested post or NotFound if not found</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<Post>> GetPost(Guid id)
+        public async Task<ActionResult<Post?>> GetPost(Guid id)
         {
             var post = await _context.Posts.FindAsync(id);
             
@@ -61,6 +61,20 @@ namespace API.Controllers
             return CreatedAtAction(nameof(GetPost), new { id = post.Id }, post);
         }
 
+        /// <summary>
+        /// Creates a new post
+        /// </summary>
+        /// <param name="post">The post data to create</param>
+        /// <returns>The created post</returns>
+        [HttpPost]
+        public async Task<ActionResult<Post>> Create([FromBody] Post post)
+        {
+            _context.Posts.Add(post);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetPost), new { id = post.Id }, post);
+        }
+        
         /// <summary>
         /// Updates an existing post
         /// </summary>
