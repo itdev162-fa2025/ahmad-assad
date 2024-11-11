@@ -4,8 +4,8 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import { ViewPostComponent } from './view-post/view-post.component';
 
 export const appRoutes: Routes = [
-    { path: '', component: HomeComponent },
-    { path: 'create-post', component: CreatePostComponent },
-    { path: 'view-post/:id', component: ViewPostComponent }, // Assuming a post ID is required for viewing
-    { path: '**', redirectTo: '', pathMatch: 'full' } // Wildcard route
-  ];
+  { path: '', component: HomeComponent },  // Home page route
+  { path: 'create-post', component: CreatePostComponent },
+  { path: 'view-post/:id', component: ViewPostComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' } // Wildcard route for invalid paths
+];

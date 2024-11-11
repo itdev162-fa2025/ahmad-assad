@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';  // Make sure this is present
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-import { appRoutes } from './app-routes'; // Import your routes
+import { appRoutes } from './app-routes'; // Import appRoutes
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -10,16 +11,13 @@ import { ViewPostComponent } from './view-post/view-post.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    CreatePostComponent,
-    ViewPostComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes), // Import the routes
+    HttpClientModule, // Import HttpClientModule
+    RouterModule.forRoot(appRoutes) // Configure routing
   ],
   providers: [],
-  bootstrap: [AppComponent]
 })
 export class AppModule { }
